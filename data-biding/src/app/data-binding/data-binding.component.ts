@@ -11,12 +11,34 @@ export class DataBindingComponent {
   cursoAngular: boolean = true;
   urlImagem: string = 'http://lorempixel.com/400/200/nature/'
 
+  valorAtual: string = '';
+  valorSalvo: string = '';
+
+  isMouseOver: boolean = false;
+
   getValor() {
     return 1;
   }
 
   getCurtirCurso() {
     return true;
+  }
+
+  botaoClicado() {
+    alert('Botao clicado');
+  }
+
+  unKeyUp(evento: KeyboardEvent) {
+    this.valorAtual = (<HTMLInputElement>evento.target).value
+  }
+
+  salvarValor(valor: string) {
+    this.valorSalvo = valor;
+  }
+
+  onMouseOverOut() {
+    this.isMouseOver = !this.isMouseOver;
+
   }
 
 }
