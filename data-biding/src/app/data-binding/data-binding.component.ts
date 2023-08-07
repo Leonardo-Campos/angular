@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-data-binding',
   templateUrl: './data-binding.component.html',
   styleUrls: ['./data-binding.component.scss']
 })
-export class DataBindingComponent {
+export class DataBindingComponent implements OnInit {
+
 
   url: string = 'http://loiane.training.com';
   cursoAngular: boolean = true;
@@ -15,6 +16,8 @@ export class DataBindingComponent {
   valorSalvo: string = '';
 
   isMouseOver: boolean = false;
+
+
 
   getValor() {
     return 1;
@@ -39,6 +42,9 @@ export class DataBindingComponent {
   onMouseOverOut() {
     this.isMouseOver = !this.isMouseOver;
 
+  }
+
+  ngOnInit(): void {
   }
 
 }
