@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+  <div class="nav navbar-nav">
+    <a class="nav-item nav-link"
+       [class.active]="aba == 'home'"
+       (click)="aba = 'home'">Home</a>
+    <a class="nav-item nav-link"
+      [class.active]="aba == 'map'"
+      (click)="aba = 'map'">Map</a>
+    <a class="nav-item nav-link"
+    [class.active]="aba == 'list'"
+    (click)="aba = 'list'">List</a>
+  </div>
+</nav>
+
+<div class="container" [ngSwitch]="aba"  >
+  <p *ngSwitchCase="'map'">Map Mode On</p>
+  <p *ngSwitchCase="'list'">List Mode On</p>
+  <p *ngSwitchDefault>Home</p>
+</div>
+
+<h5>Removing the * and using template</h5>
+
+<div class="container" [ngSwitch]="aba"  >
+  <ng-template [ngSwitchCase]="'map'">
+    <p>Map Mode On</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'list'">
+    <p>List Mode On</p>
+  </ng-template>
+  <ng-template [ngSwitchCase]="'home'" ngSwitchDefault>
+    <p>Home</p>
+  </ng-template>
+</div>
