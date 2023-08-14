@@ -10,6 +10,8 @@ import { DiretivaNgstyleComponent } from './diretiva-ngstyle/diretiva-ngstyle.co
 import { FormsModule } from '@angular/forms';
 import { OperadorElvisComponent } from './operador-elvis/operador-elvis.component';
 import { NgContentComponent } from './ng-content/ng-content.component';
+import { FundoAmareloDirective } from './shared/fundo-amarelo.directive';
+import { DiretivasCustomizadasComponent } from './diretivas-customizadas/diretivas-customizadas.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { NgContentComponent } from './ng-content/ng-content.component';
     DiretivaNgstyleComponent,
     OperadorElvisComponent,
     NgContentComponent,
+    FundoAmareloDirective,
+    DiretivasCustomizadasComponent
   ],
   imports: [
     BrowserModule,
