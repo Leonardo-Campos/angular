@@ -11,11 +11,11 @@ export class CursosComponent {
 
   cursos: string[] | undefined  = [];
 
-  cursosService: CursosService | undefined;
+  // cursosService: CursosService | undefined;
 
-  constructor(_cursosService: CursosService) {
+  constructor(private cursosService: CursosService) {
     // this.cursosService = new CursosService();
-    this.cursosService = _cursosService;
+    // this.cursosService = _cursosService;
   }
 
   ngOnInit() {
