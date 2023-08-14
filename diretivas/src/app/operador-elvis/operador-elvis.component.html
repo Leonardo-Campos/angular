@@ -1,0 +1,4 @@
+<p>Desrição: {{ tarefa.desc }}</p>
+<!-- <p>Responsável: {{ tarefa.responsavel != null ? tarefa.responsavel.nome : '' }}</p> -->
+<p>Responsável: {{ tarefa.responsavel?.usario?.nome}}</p>
+
