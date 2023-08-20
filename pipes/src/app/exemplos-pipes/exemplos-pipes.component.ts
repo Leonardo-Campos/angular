@@ -16,4 +16,13 @@ export class ExemplosPipesComponent {
     url: 'http://a.co/glqjpRp'
   };
 
+  livros: string[] = ['Java', 'Angular 2'];
+
+  filtro: string | undefined;
+
+
+  addCurso(valor: string) {
+    this.livros.push(valor);
+  }
+
 }
