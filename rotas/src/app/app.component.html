@@ -1,1 +1,23 @@
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  <div class="left-content">
+    <div class="nav-links" *ngIf="showMenu">
+      <a routerLink="" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      <a routerLink="/login" routerLinkActive="router-link-active">Login</a>
+      <a routerLink="/cursos" routerLinkActive="router-link-active" [queryParams]="{page:1}">Cursos</a>
+      <!--<a [routerLink]="['course', courseId.value]" routerLinkActive="router-link-active">Course ID</a>-->
+      <a routerLink="/students" routerLinkActive="router-link-active">Estudantes</a>
+    </div>
+  </div>
+
+  <div class="right-content">
+    <span class="app-name">Routes Ng2</span>
+  </div>
+</mat-toolbar>
+
+<mat-card class="router-outlet-container">
+  <!--
+    <p>Put the course ID</p>
+  <input #courseId>
+  -->
+  <router-outlet></router-outlet>
+</mat-card>
