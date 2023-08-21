@@ -18,11 +18,32 @@ export class ExemplosPipesComponent {
 
   livros: string[] = ['Java', 'Angular 2'];
 
-  filtro: string | undefined;
+  filtro!: string;
 
 
   addCurso(valor: string) {
     this.livros.push(valor);
   }
+
+  obterCursos() {
+    if(this.livros.length === 0 ||
+       this.filtro === undefined ||
+       this.filtro.trim() === ''
+       ) {
+      return this.livros;
+    }
+    return this.livros.filter((v: string) => {
+      if (v.toLocaleLowerCase().indexOf(this.filtro.toLowerCase()) >= 0) {
+        return true;
+
+      }  return false;
+
+    });
+  }
+
+  asyncValue = new Promise<string>((resolve, reject) => {
+    setTimeout(() => resolve('Async Value'), 1000)
+  });
+
 
 }
