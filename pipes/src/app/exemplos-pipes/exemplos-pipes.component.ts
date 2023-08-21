@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import { interval } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 @Component({
   selector: 'app-exemplos-pipes',
   templateUrl: './exemplos-pipes.component.html',
@@ -41,9 +44,11 @@ export class ExemplosPipesComponent {
     });
   }
 
-  asyncValue = new Promise<string>((resolve, reject) => {
-    setTimeout(() => resolve('Async Value'), 1000)
+  valorAsync = new Promise<string>((resolve, reject) => {
+    setTimeout(() => resolve('Valor assíncrono'), 2000)
   });
+
+  valorAsync2 = interval(1000).pipe(map(value => 'Async Value 1'));
 
 
 }
