@@ -35,7 +35,6 @@ import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-en
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    routing,
     MatSidenavModule,
     MatToolbarModule,
     MatCardModule,
@@ -43,6 +42,7 @@ import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-en
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    AppRoutingModule
   ],
   providers: [CursosService],
   bootstrap: [AppComponent]

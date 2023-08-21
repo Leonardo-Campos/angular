@@ -10,7 +10,7 @@ import { CursoNaoEncontradoComponent } from "./curso-nao-encontrado/curso-nao-en
 const APP_ROUTES: Routes = [
   { path:'cursos', component: CursosComponent },
   { path:'curso/:id', component: CursoDetalheComponent },
-  { path:'naoEncontrado', component: CursoNaoEncontradoComponent },
+  { path:'naoEncontrado', component: CursoNaoEncontradoComponent  },
   { path:'login', component: LoginComponent },
   { path:'', component: HomeComponent },
 ];
