@@ -1,6 +1,6 @@
 <mat-card class="router-outlet-container">
   <p>Course List</p>
-  <!-- <p>Page: {{ page }}</p> -->
+  <p>Pagina: {{ pagina }}</p>
   <mat-list>
     <a mat-list-item *ngFor="let curso of cursos"
     [routerLink]="['/curso', curso.id]">{{ curso.nome }}</a>
@@ -8,3 +8,4 @@
     <!-- <button (click)="nextPage()">Next Page</button> -->
   </mat-list>
   </mat-card>
+  <button (click)="proximaPagina()"></button>

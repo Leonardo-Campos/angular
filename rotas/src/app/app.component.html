@@ -3,7 +3,7 @@
     <div class="nav-links" *ngIf="showMenu">
       <a routerLink="" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       <a routerLink="/login" routerLinkActive="router-link-active">Login</a>
-      <a routerLink="/cursos" routerLinkActive="router-link-active" [queryParams]="{page:1}">Cursos</a>
+      <a routerLink="/cursos" routerLinkActive="router-link-active" [queryParams]="{pagina:1}">Cursos</a>
       <a [routerLink]="['curso', idCurso.value]" routerLinkActive="router-link-active">Course ID</a>
       <!-- <a routerLink="/students" routerLinkActive="router-link-active">Estudantes</a> -->
     </div>
