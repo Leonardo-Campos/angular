@@ -1,3 +1,15 @@
-<p>alunos works!</p>
+<div fxLayout="row" class="container">
+  <mat-card fxFlex="50" class="router-outlet-container">
+    <h5>Lista de alunos</h5>
+    <mat-list>
+      <mat-list-item *ngFor="let aluno of alunos">
+        <a mat-button [routerLink]="[aluno.id]">{{ aluno.nome }}</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
 
-<router-outlet></router-outlet>
+  <mat-card fxFlex="50" class="router-outlet-card">
+    <router-outlet></router-outlet>
+  </mat-card>
+</div>
+

@@ -1,1 +1,24 @@
-<p>aluno-form works!</p>
+<mat-card>
+  <mat-card-title>Criar/Editar Alunos</mat-card-title>
+  <mat-card-content>
+
+    <mat-form-field>
+      <input matInput disabled [(ngModel)]="aluno.id" id="disabled" type="text">
+      <mat-label>#</mat-label>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput id="name" [(ngModel)]="aluno.nome">
+      <mat-label>Nome</mat-label>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput id="email" [(ngModel)]="aluno.email" type="email">
+      <mat-label>Email</mat-label>
+    </mat-form-field>
+
+    <!-- <button mat-button color="primary">Retorna para lista de alunos</button> -->
+
+  </mat-card-content>
+
+</mat-card>

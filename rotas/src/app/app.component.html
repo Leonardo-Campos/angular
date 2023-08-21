@@ -4,7 +4,7 @@
       <a routerLink="" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       <a routerLink="/login" routerLinkActive="router-link-active">Login</a>
       <a routerLink="/cursos" routerLinkActive="router-link-active" [queryParams]="{pagina:1}">Cursos</a>
-      <a [routerLink]="['curso', idCurso.value]" routerLinkActive="router-link-active">Course ID</a>
+      <!-- <a [routerLink]="['curso', idCurso.value]" routerLinkActive="router-link-active">Course ID</a> -->
       <a routerLink="/alunos" routerLinkActive="router-link-active">Alunos</a>
     </div>
   </div>
@@ -16,8 +16,8 @@
 
 <mat-card class="router-outlet-container">
 
-    <p>Insira o ID do Curso</p>
-  <input #idCurso>
+    <!-- <p>Insira o ID do Curso</p>
+  <input #idCurso> -->
 
   <router-outlet></router-outlet>
 </mat-card>
