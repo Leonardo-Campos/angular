@@ -18,6 +18,8 @@ import { CursosComponent } from './cursos/cursos.component';
 import { routing } from './app.routing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
+import { CursosService } from './cursos/cursos.service';
+import { CursoNaoEncontradoComponent } from './curso-nao-encontrado/curso-nao-encontrado.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
     HomeComponent,
     LoginComponent,
     CursosComponent,
-    CursoDetalheComponent
+    CursoDetalheComponent,
+    CursoNaoEncontradoComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
     MatButtonModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [CursosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
