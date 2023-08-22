@@ -15,9 +15,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CursosModule } from './cursos/cursos.module';
-import { AlunosComponent } from './alunos/alunos.component';
-import { AlunosModule } from './alunos/alunos.module';
 
 @NgModule({
   declarations: [
@@ -37,8 +34,6 @@ import { AlunosModule } from './alunos/alunos.module';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    CursosModule,
-    AlunosModule,
     AppRoutingModule,
   ],
   bootstrap: [AppComponent]

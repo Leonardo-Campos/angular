@@ -6,9 +6,9 @@ import { CursoDetalheComponent } from './curso-detalhe/curso-detalhe.component';
 
 
 const cursosRoutes: Routes = [
-  { path: 'cursos', component: CursosComponent }, //  { path: 'courses', component: CoursesComponent }, // LazyLoading
+  { path: '', component: CursosComponent }, //  { path: 'courses', component: CoursesComponent }, // LazyLoading
   { path: 'naoEncontrado', component: CursoNaoEncontradoComponent },
-  { path: 'curso/:id', component: CursoDetalheComponent }
+  { path: ':id', component: CursoDetalheComponent }
 ];
 
 @NgModule({

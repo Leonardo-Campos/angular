@@ -3,7 +3,7 @@
   <p>Pagina: {{ pagina }}</p>
   <mat-list>
     <a mat-list-item *ngFor="let curso of cursos"
-    [routerLink]="['/curso', curso.id]">{{ curso.nome }}</a>
+    [routerLink]="['/cursos', curso.id]">{{ curso.nome }}</a>
 
   </mat-list>
   </mat-card>
