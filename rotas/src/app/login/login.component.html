@@ -1,1 +1,23 @@
-<p>login works!</p>
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <div fxLayout="column" fxLayoutGap="16px">
+
+      <mat-form-field style="max-width: 500px;">
+        <input [(ngModel)]="usuario.nome" matInput id="usuario" type="text" class="validate">
+        <mat-label>Usuario</mat-label>
+      </mat-form-field>
+
+      <mat-form-field style="max-width: 500px;">
+        <input [(ngModel)]="usuario.senha" matInput id="senha" type="password" class="validate">
+        <mat-label>Senha</mat-label>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="login()" style="max-width: 200px;">
+        <mat-icon>login</mat-icon>
+        Login
+      </button>
+
+    </div>
+  </mat-card-content>
+</mat-card>

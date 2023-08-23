@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <div class="left-content">
-    <div class="nav-links" *ngIf="showMenu">
+    <div class="nav-links" *ngIf="mostrarMenu">
       <a routerLink="" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       <a routerLink="/login" routerLinkActive="router-link-active">Login</a>
       <a routerLink="/cursos" routerLinkActive="router-link-active" [queryParams]="{pagina:1}">Cursos</a>
