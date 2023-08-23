@@ -17,6 +17,8 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './login/auth.service';
 import { AuthGuard } from './guard/auth.guard';
+import { CursosGuard } from './guard/cursos.guard';
+import { AlunosGuard } from './guard/alunos.guard';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,7 @@ import { AuthGuard } from './guard/auth.guard';
     MatIconModule,
     AppRoutingModule,
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, AuthGuard, CursosGuard, AlunosGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
