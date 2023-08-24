@@ -12,6 +12,7 @@ export class AlunoFormComponent {
 
   inscricao!: Subscription;
   aluno: any = {};
+  private formMudou: boolean = false;
 
   constructor(
     private router: ActivatedRoute,
@@ -36,6 +37,17 @@ export class AlunoFormComponent {
 
   ngOnDestroy() {
     this.inscricao.unsubscribe();
+  }
+
+  onInput() {
+    this.formMudou = true;
+  }
+
+  podeMudarRota() {
+    if (this.formMudou) {
+      confirm('Tem certeza que deseja sair dessa pagina?');
+    }
+    return true;
   }
 
 }
