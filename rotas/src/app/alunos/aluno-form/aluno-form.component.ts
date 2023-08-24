@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AlunosService } from '../alunos.service';
+import { IFormCanDeactivate } from 'src/app/guard/iform-candeactivate';
 
 @Component({
   selector: 'app-aluno-form',
   templateUrl: './aluno-form.component.html',
   styleUrls: ['./aluno-form.component.scss']
 })
-export class AlunoFormComponent {
+export class AlunoFormComponent implements IFormCanDeactivate {
 
   inscricao!: Subscription;
   aluno: any = {};
@@ -20,6 +21,7 @@ export class AlunoFormComponent {
   ) {
 
   }
+
 
   ngOnInit() {
     this.inscricao = this.router.params.subscribe(
@@ -48,6 +50,10 @@ export class AlunoFormComponent {
       confirm('Tem certeza que deseja sair dessa pagina?');
     }
     return true;
+  }
+
+  podeDesativar() {
+    return this.podeMudarRota();
   }
 
 }
