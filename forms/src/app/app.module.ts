@@ -8,21 +8,25 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TemplateFormModule } from './template-form/template-form.module';
+// import { DataFormModule } from './data-form/data-form.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
+    BrowserAnimationsModule,
     MatFormFieldModule,
     MatCardModule,
     FormsModule,
+    TemplateFormModule,
     ReactiveFormsModule,
+    // DataFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
