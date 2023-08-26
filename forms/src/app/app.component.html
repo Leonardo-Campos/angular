@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <div class="left-content">
+    <div class="nav-links">
+      <a routerLink="/templateForm" routerLinkActive="router-link-active">Form - Template Driven</a>
+      <a routerLink="/dataForm" routerLinkActive="router-link-active">Form - Data Driven</a>
+    </div>
+  </div>
+
+  <div class="right-content">
+    <span class="app-name">Angular Forms</span>
+  </div>
+</mat-toolbar>
+
+<mat-card class="router-outlet-container">
+  <router-outlet></router-outlet>
+</mat-card>
