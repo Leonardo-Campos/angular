@@ -7,10 +7,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormDebugComponent } from './form-debug/form-debug.component';
 
 
 @NgModule({
   declarations: [
+    FormDebugComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatButtonModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    FormDebugComponent
   ],
   providers: [
   ]
