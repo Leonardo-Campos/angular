@@ -1,3 +1,5 @@
+import { EnderecoService } from './../shared/services/endereco.service';
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -11,6 +13,11 @@ export class TemplateFormComponent {
     nome: 'Leonardo',
     email: 'leonardo@gmail.com'
   }
+
+  constructor(
+    private http: HttpClient,
+    private enderecoService: EnderecoService
+  ){}
 
   onSubmit(form: any) {
     console.log(form);
@@ -27,5 +34,15 @@ export class TemplateFormComponent {
     }
   }
 
+  consultaCEP(cep: any, form: any) {
+    this.enderecoService.consultaCep(cep).subscribe(data => {
+      // if (data) {
+      //   this.resetDataForm(form);
+      //   this.populateData(data, form);
+      // }
+    });
+  }
 
-}
+
+
+  }

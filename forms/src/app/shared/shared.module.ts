@@ -26,14 +26,14 @@ import { CampoControlErroComponent } from './campo-control-erro/campo-control-er
     HttpClientModule
   ],
   exports: [
+    FormDebugComponent,
+    CampoControlErroComponent,
     FormsModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,
     MatCardModule,
-    HttpClientModule,
-    FormDebugComponent,
-    CampoControlErroComponent
+    HttpClientModule
   ],
   providers: [
   ]
