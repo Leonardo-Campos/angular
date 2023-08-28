@@ -8,11 +8,13 @@ import { MatInputModule } from '@angular/material/input';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormDebugComponent } from './form-debug/form-debug.component';
+import { CampoControlErroComponent } from './campo-control-erro/campo-control-erro.component';
 
 
 @NgModule({
   declarations: [
-    FormDebugComponent
+    FormDebugComponent,
+    CampoControlErroComponent
   ],
   imports: [
     CommonModule,
@@ -30,7 +32,8 @@ import { FormDebugComponent } from './form-debug/form-debug.component';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    FormDebugComponent
+    FormDebugComponent,
+    CampoControlErroComponent
   ],
   providers: [
   ]

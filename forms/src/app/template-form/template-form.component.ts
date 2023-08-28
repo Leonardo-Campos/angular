@@ -16,4 +16,16 @@ export class TemplateFormComponent {
     console.log(form);
   }
 
+  verificaValidTouched(campo: any) {
+    return !campo.valid && campo.touched;
+  }
+
+  applyErrorCss(campo: any) {
+    return {
+      'has-error': this.verificaValidTouched(campo),
+      'has-feedback': this.verificaValidTouched(campo)
+    }
+  }
+
+
 }
