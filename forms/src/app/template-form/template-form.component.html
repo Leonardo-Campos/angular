@@ -5,15 +5,14 @@
 
       <div class="form-group">
         <mat-form-field appearance="fill" class="col-sm-12">
-          <mat-label for="name">Nome</mat-label>
-          <input type="text" matInput name="name" id="nome" placeholder="Nome" [(ngModel)]="usuario.nome" required
-            #nome="ngModel">
+          <mat-label for="name">Name</mat-label>
+          <input type="text" matInput name="name" id="name" placeholder="Name" [(ngModel)]="usuario.name" required
+            #name="ngModel">
           <mat-error>
-            Nome é obrigatório
+            Name is Required
           </mat-error>
         </mat-form-field>
       </div>
-
 
       <div class="form-group">
         <mat-form-field appearance="fill" class="col-sm-12">
@@ -21,9 +20,76 @@
           <input type="email" matInput name="email" id="email" placeholder="name@email.com" [(ngModel)]="usuario.email"
             required email #email="ngModel">
           <mat-error>
-            Email está invalido ou vazio
+            Email is Isvalid or Blank
           </mat-error>
         </mat-form-field>
+      </div>
+
+      <div ngModelGroup="address">
+
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="col-sm-3">
+            <mat-label>CEP</mat-label>
+            <!-- <input matInput type="cep" name="cep" id="cep" ngModel required #cep="ngModel"
+              (blur)="consultCEP(cep.value, f)" /> -->
+            <mat-error>
+              CEP is Required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-sm-3">
+            <mat-label>Number</mat-label>
+            <input matInput type="number" name="number" id="number" ngModel required #number="ngModel" />
+            <mat-error>
+              Number is Required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-sm-6">
+            <mat-label>Complement</mat-label>
+            <input matInput type="complement" name="complement" id="complement" ngModel #complement="ngModel" />
+          </mat-form-field>
+
+        </div>
+
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="col-sm-12">
+            <mat-label for="street">Street</mat-label>
+            <input matInput type="street" name="street" id="street" ngModel #street="ngModel" />
+            <!--use 'readonly after "ngModel" if you want this field to be readonly'-->
+            <mat-error>
+              Street is Required
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="col-sm-5">
+            <mat-label for="neighborhood">Neighborhood</mat-label>
+            <input matInput type="neighborhood" name="neighborhood" id="neighborhood" ngModel #neighborhood="ngModel" />
+            <mat-error>
+              Neighborhood is Required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-sm-4">
+            <mat-label for="city">City</mat-label>
+            <input matInput type="city" name="city" id="city" ngModel #city="ngModel" />
+            <mat-error>
+              City is Required
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-sm-3">
+            <mat-label for="state">State</mat-label>
+            <input matInput type="state" name="state" id="state" ngModel #state="ngModel" />
+            <mat-error>
+              State is Required
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+
       </div>
 
       <button mat-raised-button color="primary" [disabled]="!f.valid">Submit</button>
