@@ -35,13 +35,40 @@ export class TemplateFormComponent {
   }
 
   consultaCEP(cep: any, form: any) {
-    this.enderecoService.consultaCep(cep).subscribe(data => {
-      // if (data) {
-      //   this.resetDataForm(form);
-      //   this.populateData(data, form);
-      // }
+    this.enderecoService.consultaCep(cep).subscribe(dados => {
+      if (dados) {
+        this.resetarDataForm(form);
+        this.populaDados(dados, form);
+      }
     });
   }
+
+
+  populaDados(dados: any, form: any) {
+    form.form.patchValue({
+      endereco: {
+        cep: dados.cep,
+        complemento: dados.complemento,
+        rua: dados.logradouro,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
+      }
+    });
+  }
+
+  resetarDataForm(form: any) {
+    form.form.patchValue({
+      endereco: {
+        complemento: null,
+        rua: null,
+        bairro: null,
+        cidade: null,
+        estado: null
+      }
+    });
+  }
+
 
 
 
