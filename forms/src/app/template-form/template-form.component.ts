@@ -1,6 +1,7 @@
 import { EnderecoService } from './../shared/services/endereco.service';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-template-form',
@@ -20,7 +21,11 @@ export class TemplateFormComponent {
   ){}
 
   onSubmit(form: any) {
-    console.log(form);
+    // console.log(form);
+
+    this.http.post('enderecoServer/formUsuario', JSON.stringify(form.value))
+    .pipe(map(res => res))
+    .subscribe(dados => console.log(dados));
   }
 
   verificaValidTouched(campo: any) {
