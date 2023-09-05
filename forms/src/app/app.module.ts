@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateFormModule } from './template-form/template-form.module';
-// import { DataFormModule } from './data-form/data-form.module';
+import { DataFormModule } from './data-form/data-form.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { TemplateFormModule } from './template-form/template-form.module';
     FormsModule,
     TemplateFormModule,
     ReactiveFormsModule,
-    // DataFormModule
+    DataFormModule
   ],
   providers: [],
   bootstrap: [AppComponent]
