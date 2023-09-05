@@ -1,1 +1,36 @@
-<p>data-form works!</p>
+<form class="form-horizontal" [formGroup]="formulario">
+
+  <mat-card>
+    <mat-card-content>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="col-sm-12">
+          <mat-label for="nome">Nome</mat-label>
+          <input type="text" matInput formControlName="nome" id="nome" placeholder="Nome">
+          <mat-error>
+            Nome é obrigatório
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="fill" class="col-sm-12">
+          <mat-label for="email">Email</mat-label>
+          <input type="email" matInput formControlName="email" id="email" placeholder="name@email.com">
+          <mat-error>
+            Email está inválido ou vazio
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <button mat-raised-button color="primary">Submit</button>
+
+      <app-form-debug [form]="formulario"></app-form-debug>
+        <!--IF YOU WANT TO DEBUG AND SEE THE INFO IN THE FORM-->
+    </mat-card-content>
+
+  </mat-card>
+
+
+</form>
