@@ -6,20 +6,29 @@
       <div class="form-group">
         <mat-form-field appearance="fill" class="col-sm-12">
           <mat-label for="nome">Nome</mat-label>
-          <input type="text" matInput formControlName="nome" id="nome" placeholder="Nome">
-          <mat-error>
+          <input type="text" matInput formControlName="nome" id="nome" placeholder="Nome" required>
+          <mat-error> <!--{{ getErrorMessage('name') }} -->
             Nome é obrigatório
           </mat-error>
         </mat-form-field>
       </div>
 
+        <!--app-input-field [label]="'Name'" [id]="'name'" [control]="form.get('name')" appearance="fill">
+        <mat-error>{{ getErrorMessage('name') }}</mat-error>
+       </!--app-input-field-->
+
       <div class="form-group">
         <mat-form-field appearance="fill" class="col-sm-12">
           <mat-label for="email">Email</mat-label>
-          <input type="email" matInput formControlName="email" id="email" placeholder="name@email.com">
+          <input type="email" matInput formControlName="email" id="email" placeholder="name@email.com" required email>
           <mat-error>
-            Email está inválido ou vazio
+            Email é obrigatório
           </mat-error>
+          <!-- <mat-error *ngIf="form.get('email')?.hasError('emailInvalid')">Email already exists.</mat-error> -->
+          <!-- <mat-error *ngIf="form.get('email')?.hasError('email')">Email is Invalid or Blank.</mat-error> -->
+          <!-- <mat-hint class="green-hint" *ngIf="form.get('email')?.valid && !form.get('email')?.touched">Email is valid. -->
+            <!-- <mat-icon class="green-icon">check_circle</mat-icon> -->
+          <!-- </mat-hint> -->
         </mat-form-field>
       </div>
 
