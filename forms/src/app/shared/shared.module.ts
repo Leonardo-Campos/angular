@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { FormDebugComponent } from './form-debug/form-debug.component';
 import { CampoControlErroComponent } from './campo-control-erro/campo-control-erro.component';
+import { DropdownService } from './services/dropdown.service';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { CampoControlErroComponent } from './campo-control-erro/campo-control-er
     ReactiveFormsModule
   ],
   providers: [
+    DropdownService
   ]
 })
 export class SharedModule { }

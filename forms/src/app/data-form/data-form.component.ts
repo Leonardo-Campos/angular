@@ -1,8 +1,10 @@
+import { EstadosBr } from './../shared/models/estados-br';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { EnderecoService } from '../shared/services/endereco.service';
+import { DropdownService } from '../shared/services/dropdown.service';
 
 
 @Component({
@@ -13,13 +15,19 @@ import { EnderecoService } from '../shared/services/endereco.service';
 export class DataFormComponent implements OnInit{
 
   formulario!: FormGroup;
+  estados: EstadosBr[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private enderecoService: EnderecoService) {}
+    private enderecoService: EnderecoService,
+    private dropDownService: DropdownService) {}
 
   ngOnInit() {
+    this.dropDownService.getEstadosBr()
+      .subscribe((dados: any) => {this.estados = dados; console.log(dados)});
+
+
     this.formulario = this.formBuilder.group({
       nome: [null, Validators.required],
       email: [null, [Validators.required, Validators.email]],
