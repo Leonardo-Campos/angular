@@ -50,8 +50,7 @@
         <div class="form-group">
           <mat-form-field appearance="fill" class="col-sm-3">
             <mat-label>CEP</mat-label>
-            <!--input matInput formControlName="cep" type="cep" id="cep" (blur)="consultCEP()" /-->
-            <input matInput formControlName="cep" type="cep" id="cep" />
+            <input matInput formControlName="cep" type="cep" id="cep" (blur)="consultaCEP()">
             <!-- <mat-error *ngIf="form.get('endereco.cep')?.hasError('required')">CEP is required.</mat-error>
             <mat-error *ngIf="form.get('endereco.cep')?.hasError('invalidCep')">CEP is invalid.</mat-error> -->
           </mat-form-field>

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
+import { EnderecoService } from '../shared/services/endereco.service';
 
 
 @Component({
@@ -15,7 +16,8 @@ export class DataFormComponent implements OnInit{
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient) {}
+    private http: HttpClient,
+    private enderecoService: EnderecoService) {}
 
   ngOnInit() {
     this.formulario = this.formBuilder.group({
@@ -47,6 +49,40 @@ export class DataFormComponent implements OnInit{
 
   resetar() {
     this.formulario.reset();
+  }
+
+  consultaCEP() {
+    const cep = this.formulario.get('endereco.cep')?.value;
+
+    if (cep != null && cep !== '') {
+      this.enderecoService.consultaCep(cep)
+        .subscribe(data => this.populaDados(data));
+    }
+  }
+
+  populaDados(dados: any) {
+    this.formulario.patchValue({
+      endereco: {
+        cep: dados.cep,
+        complemento: dados.complemento,
+        rua: dados.logradouro,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf
+      }
+    });
+  }
+
+  resetarDataForm() {
+    this.formulario.patchValue({
+      endereco: {
+        complemento: null,
+        rua: null,
+        bairro: null,
+        cidade: null,
+        estado: null
+      }
+    });
   }
 
 }
