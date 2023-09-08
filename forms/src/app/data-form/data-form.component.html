@@ -19,7 +19,7 @@
 
       <div class="form-group">
         <mat-form-field appearance="fill" class="col-sm-12">
-          <mat-label for="email">Email</mat-label>
+          <mat-label>Email</mat-label>
           <input type="email" matInput formControlName="email" id="email" placeholder="name@email.com" required email>
           <mat-error>
             Email é obrigatório
@@ -32,6 +32,101 @@
         </mat-form-field>
       </div>
 
+
+      <!-- <div class="form-group">
+        <mat-form-field appearance="fill" class="col-sm-12">
+          <mat-label for="confirmEmail">Confirm your Email</mat-label>
+          <input type="confirmEmail" matInput formControlName="confirmEmail" id="confirmEmail"
+            placeholder="name@email.com" required email>
+          <mat-error *ngIf="form.get('confirmEmail')?.hasError('equalsTo')">The email address must be the
+            same.</mat-error>
+          <mat-error *ngIf="form.get('confirmEmail')?.hasError('required')">It is required to confirm the
+            email.</mat-error>
+        </mat-form-field>
+      </div> -->
+
+      <!-- <div formGroupName="endereco"> -->
+
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="col-sm-3">
+            <mat-label>CEP</mat-label>
+            <!--input matInput formControlName="cep" type="cep" id="cep" (blur)="consultCEP()" /-->
+            <input matInput formControlName="cep" type="cep" id="cep" />
+            <!-- <mat-error *ngIf="form.get('endereco.cep')?.hasError('required')">CEP is required.</mat-error>
+            <mat-error *ngIf="form.get('endereco.cep')?.hasError('invalidCep')">CEP is invalid.</mat-error> -->
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-sm-3">
+            <mat-label>Numero</mat-label>
+            <input matInput formControlName="numero" type="numero" id="numero" required />
+            <mat-error>
+              Numero é obrigatório
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-sm-6">
+            <mat-label>Complemento</mat-label>
+            <input matInput formControlName="complemento" type="complemento" id="complemento" />
+          </mat-form-field>
+
+        </div>
+
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="col-sm-12">
+            <mat-label>Rua</mat-label>
+            <input matInput formControlName="rua" type="rua" id="rua" />
+            <!--use 'readonly after "ngModel" if you want this field to be readonly'-->
+            <mat-error>
+              Rua é obrigatório
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="col-sm-5">
+            <mat-label>Bairro</mat-label>
+            <input matInput formControlName="bairro" type="bairro" id="bairro" />
+            <mat-error>
+              bairro é obrigatório
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-sm-4">
+            <mat-label>Cidade</mat-label>
+            <input matInput formControlName="cidade" type="cidade" id="cidade" />
+            <mat-error>
+              Cidade é obrigatório
+            </mat-error>
+          </mat-form-field>
+
+          <!-- <mat-form-field appearance="fill" class="col-sm-4">
+            <mat-label for="state">City</mat-label>
+            <select matNativeControl formControlName="city" id="city">
+              <option *ngFor="let city of cities" [value]="city.name">
+                {{ city.name }}
+              </option>
+            </select>
+            <mat-error>
+              City is Required
+            </mat-error>
+          </mat-form-field> -->
+
+          <mat-form-field appearance="fill" class="col-sm-3">
+            <mat-label>Estado</mat-label>
+            <select matNativeControl formControlName="estado" id="estado">
+              <!--option *ngFor="let state of states | async" [value]="state.abbreviation"-->
+              <!-- <option *ngFor="let state of states" [value]="state.abbreviation"> -->
+                <!-- {{ state.name }} -->
+              <!-- </option> -->
+            </select>
+            <mat-error>
+              Estado é obrigatório
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+
+      <!-- </div> -->
 
       <button mat-raised-button color="primary">Submit</button>
       <button mat-raised-button color="warning" (click)="resetar()">Cancelar</button>
