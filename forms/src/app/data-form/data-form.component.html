@@ -112,12 +112,13 @@
 
           <mat-form-field appearance="fill" class="col-sm-3">
             <mat-label>Estado</mat-label>
-            <select matNativeControl formControlName="estado" id="estado">
+            <input matInput formControlName="estado" type="estado" id="estado" />
+            <!-- <select matNativeControl formControlName="estado" id="estado"> -->
               <!--option *ngFor="let state of states | async" [value]="state.abbreviation"-->
               <!-- <option *ngFor="let state of states" [value]="state.abbreviation"> -->
                 <!-- {{ state.name }} -->
               <!-- </option> -->
-            </select>
+            <!-- </select> -->
             <mat-error>
               Estado é obrigatório
             </mat-error>
@@ -127,7 +128,7 @@
 
       </div>
 
-      <button mat-raised-button color="primary">Submit</button>
+      <button mat-raised-button color="primary" class="mx-1">Submit</button>
       <button mat-raised-button color="warning" (click)="resetar()">Cancelar</button>
 
 

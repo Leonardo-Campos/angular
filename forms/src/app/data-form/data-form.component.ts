@@ -39,11 +39,25 @@ export class DataFormComponent implements OnInit{
   onSubmit() {
     console.log(this.formulario.value);
 
-    this.http.post('enderecoServer/formUsuario', JSON.stringify(this.formulario.value))
-    .pipe(map(res => res))
-    .subscribe(dados => {
-      console.log(dados);
-      this.resetar();
+    if(this.formulario.valid) {
+      this.http.post('enderecoServer/formUsuario', JSON.stringify(this.formulario.value))
+      .pipe(map(res => res))
+      .subscribe(dados => {
+        console.log(dados);
+        this.resetar();
+      });
+    } else {
+      this.verificaValidacoesForm(this.formulario);
+    }
+  }
+
+  verificaValidacoesForm(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(campo => {
+      const controle = formGroup.get(campo);
+      controle?.markAsTouched();
+      if (controle instanceof FormGroup) {
+        this.verificaValidacoesForm(controle);
+      }
     });
   }
 
