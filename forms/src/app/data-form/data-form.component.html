@@ -127,8 +127,35 @@
 
       </div>
 
+      <div class="form-group">
+        <div fxLayout="row" fxLayoutGap="16px">
+
+          <mat-form-field appearance="fill" class="col-sm-3">
+            <mat-label for="cargo">Cargo</mat-label>
+            <select matNativeControl formControlName="cargo" id="cargo" [compareWith]="compararCargos">
+              <option *ngFor="let cargo of cargos" [ngValue]="cargo">
+                {{ cargo.desc }}
+              </option>
+            </select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill" class="col-sm-3">
+            <mat-label for="tecnologias">Tecnologias</mat-label>
+            <select multiple matNativeControl formControlName="tecnologias" id="tecnologias">
+              <option *ngFor="let tecnologia of tecnologias" [value]="tecnologia.nome">
+                {{ tecnologia.desc }}
+              </option>
+            </select>
+          </mat-form-field>
+        </div>
+      </div>
+
       <button mat-raised-button color="primary" class="mx-1">Submit</button>
-      <button mat-raised-button color="warning" (click)="resetar()">Cancelar</button>
+      <button mat-raised-button color="warn" (click)="resetar()">Cancelar</button>
+      <button mat-raised-button color="accent" (click)="setarCargo()">Cargo</button>
+      <button mat-raised-button color="accent" (click)="setarTecnologias()">Tecnologias</button>
+
+
 
 
       <app-form-debug [form]="formulario"></app-form-debug>
