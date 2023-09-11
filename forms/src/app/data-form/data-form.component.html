@@ -147,7 +147,17 @@
               </option>
             </select>
           </mat-form-field>
+
+
+          <mat-form-field appearance="fill" class="col-sm-3">
+            <mat-label for="newsletter">Newsletter</mat-label>
+            <mat-select formControlName="newsletter" id="newsletter">
+              <mat-option *ngFor="let item of newsletterOp" [value]="item.valor">{{ item.desc }}</mat-option>
+            </mat-select>
+          </mat-form-field>
         </div>
+
+
       </div>
 
       <button mat-raised-button color="primary" class="mx-1">Submit</button>

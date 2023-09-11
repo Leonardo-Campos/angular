@@ -16,18 +16,26 @@ export class DropdownService {
 
   getCargos() {
     return [
-      {nome: 'Dev', nivel: 'Junior', desc: 'Dev Jr'},
-      {nome: 'Dev', nivel: 'Pleno', desc: 'Dev Pl'},
-      {nome: 'Dev', nivel: 'Senior', desc: 'Dev Sr'}
+      { nome: 'Dev', nivel: 'Junior', desc: 'Dev Jr' },
+      { nome: 'Dev', nivel: 'Pleno', desc: 'Dev Pl' },
+      { nome: 'Dev', nivel: 'Senior', desc: 'Dev Sr' }
     ];
   }
 
   getTecnologias() {
     return [
-      {nome: 'Java', desc: 'Java'},
-      {nome: 'JavaScript', desc: 'JavaScript'},
-      {nome: 'PHP', desc: 'PHP'},
-      {nome: 'Ruby', desc: 'Ruby'}
+      { nome: 'Java', desc: 'Java' },
+      { nome: 'JavaScript', desc: 'JavaScript' },
+      { nome: 'PHP', desc: 'PHP' },
+      { nome: 'Ruby', desc: 'Ruby' }
     ];
   }
+
+  getNewsletter() {
+    return [
+      { valor: 's', desc: 'Sim' },
+      { valor: 'n', desc: 'Não' }
+    ];
+  }
+
 }

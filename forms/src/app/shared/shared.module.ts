@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormDebugComponent } from './form-debug/form-debug.component';
 import { CampoControlErroComponent } from './campo-control-erro/campo-control-erro.component';
 import { DropdownService } from './services/dropdown.service';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { DropdownService } from './services/dropdown.service';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule
   ],
   exports: [
     FormDebugComponent,
@@ -36,7 +38,8 @@ import { DropdownService } from './services/dropdown.service';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatRadioModule
   ],
   providers: [
     DropdownService
