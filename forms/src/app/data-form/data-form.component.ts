@@ -5,6 +5,15 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { map } from 'rxjs/operators';
 import { EnderecoService } from '../shared/services/endereco.service';
 import { DropdownService } from '../shared/services/dropdown.service';
+import { ThemePalette } from '@angular/material/core';
+import { FormValidations } from '../shared/form-validations';
+
+export interface Terms {
+  name: string;
+  completed: boolean;
+  color: ThemePalette;
+  subterms?: Terms[];
+}
 
 
 @Component({
@@ -19,6 +28,59 @@ export class DataFormComponent implements OnInit{
   cargos!: any[];
   tecnologias!: any[];
   newsletterOp!: any[];
+
+  terms: Terms = {
+    name: 'Accept the Terms',
+    completed: false,
+    color: 'primary',
+    subterms: [
+      { name: 'Term 1', completed: false, color: 'primary' },
+      { name: 'Term 2', completed: false, color: 'accent' },
+      { name: 'Term 3', completed: false, color: 'warn' },
+    ],
+  };
+
+  termsFormControl = new FormControl('', [(control) => {
+    return !control.value ? { 'required': true } : null;
+  }]
+  );
+
+  allComplete: boolean = false;
+
+  updateAllComplete() {
+    this.allComplete = this.terms.subterms != null && this.terms.subterms.every(t => t.completed);
+  }
+
+  someComplete(): boolean {
+    if (this.terms.subterms == null) {
+      return false;
+    }
+    return this.terms.subterms.filter(t => t.completed).length > 0 && !this.allComplete;
+  }
+
+  setAll(completed: boolean) {
+    this.allComplete = completed;
+    if (this.terms.subterms == null) {
+      return;
+    }
+    this.terms.subterms.forEach(t => (t.completed = completed));
+    this.terms.completed = this.allComplete; // Update parent completed
+    this.updateFormJson();
+  }
+
+  updateFormJson() {
+    this.formulario.get('terms')?.updateValueAndValidity();
+  }
+
+  updateParentCompleted() {
+    if (this.terms.subterms) {
+      const allSubtermsCompleted = this.terms.subterms.every(subterm => subterm.completed === true);
+      this.formulario.get('terms')?.setValue(allSubtermsCompleted);
+    } else {
+      this.formulario.get('terms')?.setValue(false);
+    }
+    this.updateFormJson();
+  }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,7 +102,7 @@ export class DataFormComponent implements OnInit{
       email: [null, [Validators.required, Validators.email]],
 
       endereco: this.formBuilder.group({
-        cep: [null, Validators.required],
+        cep: [null, Validators.required, FormValidations.cepValidator],
         numero: [null, Validators.required],
         complemento: [null],
         rua: [null, Validators.required],
@@ -50,7 +112,9 @@ export class DataFormComponent implements OnInit{
       }),
       cargo: [null],
       tecnologias: [null],
-      newsletter: [null]
+      newsletter: [null],
+      termos: [null, Validators.pattern('true')],
+      frameworks: [null]
     });
   }
 
