@@ -1,41 +1,50 @@
-import { map } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EstadosBr } from '../models/estados-br';
+import { map } from 'rxjs/operators';
+import { BrStates } from '../models/br-states';
+import { Cities } from '../models/cities';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DropdownService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  getEstadosBr() {
-    return this.httpClient.get('assets/dados/estadosbr.json');
+  getStatesBr() {
+    return this.http.get<BrStates[]>('assets/data/brstates.json').pipe();
   }
 
-  getCargos() {
+  getCities(stateId: number) {
+    return this.http.get<Cities[]>('assets/data/cities.json')
+    .pipe(
+      map((cities: Cities[]) => cities.filter(c => c.state == stateId))
+    );
+  }
+
+  getPositions() {
     return [
-      { nome: 'Dev', nivel: 'Junior', desc: 'Dev Jr' },
-      { nome: 'Dev', nivel: 'Pleno', desc: 'Dev Pl' },
-      { nome: 'Dev', nivel: 'Senior', desc: 'Dev Sr' }
-    ];
+      {name: 'Dev', level: 'Junior', description: 'Dev Jr'},
+      {name: 'Dev', level: '', description: 'Dev'},
+      {name: 'Dev', level: 'Senior', description: 'Dev Senior'},
+    ]
   }
 
-  getTecnologias() {
+  getTechnologies() {
     return [
-      { nome: 'Java', desc: 'Java' },
-      { nome: 'JavaScript', desc: 'JavaScript' },
-      { nome: 'PHP', desc: 'PHP' },
-      { nome: 'Ruby', desc: 'Ruby' }
-    ];
+      {name: 'java', description: 'Java'},
+      {name: 'javascript', description: 'JavaScript'},
+      {name: 'php', description: 'PHP'},
+      {name: 'ruby', description: 'Ruby'},
+    ]
   }
 
-  getNewsletter() {
+  gerNewsLetter() {
     return [
-      { valor: 's', desc: 'Sim' },
-      { valor: 'n', desc: 'Não' }
-    ];
+      {name: 's', description: 'Sim'},
+      {name: 'n', description: 'Não'}
+    ]
   }
-
 }

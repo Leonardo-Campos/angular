@@ -12,8 +12,8 @@ import { TemplateFormComponent } from './template-form.component';
   ],
   imports: [
     CommonModule,
-    // FlexLayoutModule,
-    SharedModule
+    SharedModule,
+    // FlexLayoutModule
   ]
 })
 export class TemplateFormModule { }

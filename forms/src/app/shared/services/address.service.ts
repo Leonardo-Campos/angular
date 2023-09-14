@@ -6,22 +6,24 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class EnderecoService {
+export class AddressService {
 
   constructor(private http: HttpClient) { }
 
-  consultaCep(cep: string) {
+  consultCEP(cep: string) {
+
+    console.log(cep);
+
     cep = cep.replace(/\D/g, '');
 
-    if (cep != "") {
-      var validateCep = /^[0-9]{8}$/;
+    if (cep !== '') {
+      const validateCep = /^[0-9]{8}$/;
 
       if (validateCep.test(cep)) {
-        return this.http.get(`//viacep.com.br/ws/${cep}/json`)
-          .pipe(map((data: any) => data));
+        return this.http.get(`//viacep.com.br/ws/${cep}/json`);
       }
     }
 
-    return of(null);
+    return of({});
   }
 }

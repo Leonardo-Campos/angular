@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EnderecoService } from './endereco.service';
+import { ErrorMsgService } from './error-msg.service';
 
-describe('EnderecoService', () => {
-  let service: EnderecoService;
+describe('ErrorMsgService', () => {
+  let service: ErrorMsgService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(EnderecoService);
+    service = TestBed.inject(ErrorMsgService);
   });
 
   it('should be created', () => {
