@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <div class="left-content">
+    <div class="nav-links">
+      <a routerLink="/home" routerLinkActive="router-link-active">Home</a>
+      <a routerLink="/courses" routerLinkActive="router-link-active">Courses</a>
+      <a routerLink="/rxjs-poc" routerLinkActive="router-link-active">RxJS POC</a>
+    </div>
+  </div>
+
+  <div class="right-content">
+    <span class="app-name" routerLink="/" routerLinkActive="active">Http</span>
+  </div>
+</mat-toolbar>
+
+<mat-card class="router-outlet-container">
+  <router-outlet></router-outlet>
+</mat-card>
