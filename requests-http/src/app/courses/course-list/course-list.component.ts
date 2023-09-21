@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { CoursesService } from '../courses.service';
+import { Course } from '../course';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-course-list',
@@ -7,5 +10,15 @@ import { Component } from '@angular/core';
   preserveWhitespaces: true
 })
 export class CourseListComponent {
+
+  courses!: Course[];
+
+  courses$!: Observable<Course[]>;
+
+  constructor(private service: CoursesService) {}
+
+  ngOnInit() {
+    // this.courses$ = this.service.list();
+  }
 
 }
