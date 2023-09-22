@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { CoursesService } from '../courses.service';
 import { Course } from '../course';
-import { Observable } from 'rxjs';
+import { CoursesService } from '../courses.service';
+import { Observable, Subject, catchError, empty } from 'rxjs';
 
 @Component({
   selector: 'app-course-list',
@@ -11,14 +11,46 @@ import { Observable } from 'rxjs';
 })
 export class CourseListComponent {
 
-  courses!: Course[];
+  //courses!: Course[];
 
   courses$!: Observable<Course[]>;
+  error$ = new Subject<{ message: string }>();
 
-  constructor(private service: CoursesService) {}
+  displayedColumns: string[] = ['id', 'name', 'actions'];
+
+  constructor(private service: CoursesService) { }
 
   ngOnInit() {
+    console.log("ngOnInit is called");
+    //this.service.list()
+    this.onRefresh();
+   //  .subscribe(data => {
+   //    console.log("Received data:", data);
+   //    this.courses = data;
+   //  });
+
     // this.courses$ = this.service.list();
   }
 
+  onRefresh() {
+    this.courses$ = this.service.list()
+    .pipe(
+      catchError(error => {
+        console.error(error);
+        this.error$.next({ message: 'Error when loading courses. Try again later.' });
+        return empty();
+      })
+    );
+
+    this.service.list()
+    //.pipe(
+    //  catchError(error => empty())
+    //)
+    .subscribe(data => {
+      console.log(data);
+    },
+    err => console.error(err),
+    () => console.log('Complete Observable')
+    )
+  }
 }
